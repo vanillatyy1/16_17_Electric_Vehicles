@@ -1,4 +1,4 @@
-Brand,Model,Battery,€/km of range*,0 - 100,Top Speed,Range*,Efficiency*,Fastcharge*,Price in Germany before incentives,Price in The Netherlands before incentives,Price in the United Kingdom after incentives,Approx. in USD based on source,Drive_Configuration
+Brand,Model,Battery,€/km_of_range,0-100,Top_Speed,Range,Efficiency,Fastcharge,Price_in_Germany_before_incentives,Price_in_The_Netherlands_before_incentives,Price_in_the_United_Kingdom_after_incentives,Approx._in_USD_based_on_source,Drive_Configuration
 TESLA,Model 3,57.5,108,6.1,201,415,139,690,"43,970","43,993","39,990","49,827",Rear Wheel Drive
 TESLA,Model Y Long Range Dual Motor,75,129,5.0,217,435,172,670,"55,970","50,990","52,990","66,025",All Wheel Drive
 TESLA,Model 3 Long Range Dual Motor,75,108,4.4,201,500,150,770,"52,970","51,993","49,990","62,287",All Wheel Drive
