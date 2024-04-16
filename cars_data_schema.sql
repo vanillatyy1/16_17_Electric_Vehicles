@@ -23,3 +23,5 @@ CREATE TABLE "cars_data" (
      )
 );
 
+SELECT * FROM public.cars_data
+LIMIT 100
