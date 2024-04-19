@@ -12,7 +12,7 @@ engine = create_engine("postgresql://postgres:postgres@localhost:5432/cars_data"
 @app.route('/battery_efficiency_vs_range')
 def battery_efficiency_vs_range():
     # Query data from Postgres
-    df = pd.read_sql_query("SELECT * FROM public.cars_data", engine)
+    df = pd.read_sql_query("SELECT Battery, Range FROM public.cars_data", engine)
     # Convert data to JSON
     data_json = df[['Battery', 'Range']].to_json(orient='records')
     return jsonify(data_json)
@@ -45,4 +45,4 @@ def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
