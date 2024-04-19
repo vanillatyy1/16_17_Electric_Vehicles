@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,8 +11,10 @@
     <!-- Load d3.js -->
     <!-- <script src="https://d3js.org/d3.v4.js"></script> -->
 
-    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- <link rel="stylesheet" type="text/css" href="static/css/style.css"> -->
 </head>
+
 <body>
     <!-- Testing -->
     <!-- Create a div where the graph will take place -->
@@ -19,14 +22,19 @@
     <!--<div id="my dataviz1"></div>-->
     <!--<h3> Click here</h3>-->
     <!--<div id="my_dataviz2"> </div>-->
-    
+
 
     <div id="battery-efficiency-chart"></div>
     <div id="brand-comparison-chart"></div>
     <div id="average-range-chart"></div>
 
     <!-- Include JavaScript file -->
-    <script src="static/js/plot.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> -->
+
+    <script src="{{ url_for('static', filename='/js/plot.js') }}"></script>
+
+    <!-- <script src="static/js/plot.js"></script> -->
 </body>
 </body>
+
 </html>
