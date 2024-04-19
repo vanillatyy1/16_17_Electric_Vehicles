@@ -15,6 +15,7 @@ def battery_efficiency_vs_range():
     df = pd.read_sql_query("SELECT * FROM public.cars_data", engine)
     # Convert data to JSON
     data_json = df[['Battery', 'Range']].to_json(orient='records')
+    print(data_json)  # Print JSON data
     return jsonify(data_json)
 
 # Route to get brand comparison data
@@ -26,6 +27,7 @@ def brand_comparison():
     grouped_data = df.groupby('Brand')[['Range', 'Efficiency']].mean().reset_index()
     # Convert data to JSON
     data_json = grouped_data.to_json(orient='records')
+    print(data_json)  
     return jsonify(data_json)
 
 # Route to get average range for each brand
@@ -37,6 +39,7 @@ def average_range_for_each_brand():
     avg_range_per_brand = df.groupby('Brand')['Range'].mean().reset_index()
     # Convert data to JSON
     data_json = avg_range_per_brand.to_json(orient='records')
+    print(data_json)  # Print JSON data
     return jsonify(data_json)
 
 # Route to render HTML page with visualizations

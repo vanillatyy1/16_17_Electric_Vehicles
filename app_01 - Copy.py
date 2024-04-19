@@ -3,7 +3,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 # Create Flask app
-app = Flask(__name__)
+app = Flask(__name__, template_folder='03-Project3a')
 
 # Create engine
 engine = create_engine("postgresql://postgres:postgres@localhost:5432/cars_data")
@@ -45,4 +45,4 @@ def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)

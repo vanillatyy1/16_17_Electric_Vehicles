@@ -3,10 +3,11 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 # Create Flask app
-app = Flask(__name__, template_folder='03-Project3a')
+app = Flask(__name__)
 
 # Create engine
-engine = create_engine("postgresql://postgres:postgres@localhost:5432/cars_data")
+engine = create_engine("postgresql://postgres:Amer1234@localhost:5432/cars_data")
+
 
 # Route to get battery efficiency vs range data
 @app.route('/battery_efficiency_vs_range')
@@ -45,4 +46,4 @@ def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
