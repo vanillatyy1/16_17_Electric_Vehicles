@@ -88,6 +88,23 @@ function brand_chart(selectedBrand) {
             console.log('Models:', models);
             console.log('Ranges:', ranges);
 
+            // create the chart trace to plot it
+            let bar_chart = [{
+                x: ranges,
+                y: models,
+                // text: otu_labels.slice(0, 10).reverse(),
+                type: 'bar',
+                orientation: 'h',
+            }]
+            // create a layout for the bar chart
+            let bar_layout = {
+                title: 'Model ranges for ' + selectedBrand + ' Brand',
+                height: 500,
+                width: 1000
+            }
+            // Plot the bar chart
+            Plotly.newPlot('bar3', bar_chart, bar_layout)
+
             // Proceed with further processing if needed
         })
         .catch(error => {

@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col-md-12 p-5 text-center bg-light">
                 <h1>Electric Vehicle charts</h1>
-                <p>Use the interactive charts below to explore the dataset</p>
+                <p>Use the interactive charts below to explore the models ranges based on the brand</p>
             </div>
         </div>
         <div class="row">
@@ -30,29 +30,20 @@
                     <h5>Select a Brand:</h5>
                     <select id="selDataset" onchange="optionChanged(this.value)"></select>
                 </div>
-                <!-- <div class="card card-primary">
-                    <div class="card-header">
-                        <h4 class="card-title">Demographic Info</h4>
-                    </div>
-                    <div id="sample-metadata" class="card-body"></div>
-                </div> -->
             </div>
             <div class="col-md-5">
-                <div id="bar"></div>
+                <div id="bar1"></div>
             </div>
             <div class="col-md-5">
-                <div id="gauge"></div>
+                <div id="bar2"></div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div id="bubble"></div>
+                <div id="bar3"></div>
             </div>
         </div>
     </div>
-    <!-- <div id="battery-efficiency-chart"></div>
-    <div id="brand-comparison-chart"></div>
-    <div id="average-range-chart"></div> -->
 
     <!-- Include JavaScript file -->
     <script src="{{ url_for('static', filename='/js/plot.js') }}"></script>
