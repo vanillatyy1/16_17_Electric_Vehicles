@@ -9,32 +9,47 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
     <!-- Load d3.js -->
-    <!-- <script src="https://d3js.org/d3.v4.js"></script> -->
+    <script src="https://d3js.org/d3.v4.js"></script>
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <!-- <link rel="stylesheet" type="text/css" href="static/css/style.css"> -->
 </head>
 
 <body>
-    <!-- Testing -->
-    <!-- Create a div where the graph will take place -->
-    <!--<h3>Hello David you can click her</h3>-->
-    <!--<div id="my dataviz1"></div>-->
-    <!--<h3> Click here</h3>-->
-    <!--<div id="my_dataviz2"> </div>-->
 
-
-    <div id="battery-efficiency-chart"></div>
-    <div id="brand-comparison-chart"></div>
-    <div id="average-range-chart"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 p-5 text-center bg-light">
+                <h1>Electric Vehicle charts</h1>
+                <p>Use the interactive charts below to explore the models ranges based on the brand</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="card card-body bg-light">
+                    <h5>Select a Brand:</h5>
+                    <select id="selDataset" onchange="optionChanged(this.value)"></select>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div id="bar1"></div>
+            </div>
+            <div class="col-md-5">
+                <div id="bar2"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="bar3"></div>
+            </div>
+        </div>
+    </div>
 
     <!-- Include JavaScript file -->
-    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> -->
-
     <script src="{{ url_for('static', filename='/js/plot.js') }}"></script>
 
     <!-- <script src="static/js/plot.js"></script> -->
 </body>
-</body>
+
 
 </html>

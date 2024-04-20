@@ -1,93 +1,126 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // Fetch data for Battery Efficiency vs Range
-  fetch('/battery_efficiency_vs_range')
-      .then(response => response.json())
-      .then(data => {
-          // Extract Battery and Range data
-          const batteryData = data.map(entry => entry.Battery);
-          const rangeData = data.map(entry => entry.Range);
+fetch('/average_range_for_each_brand')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
 
-          // Create a scatter plot using Plotly.js
-          const batteryEfficiencyLayout = {
-              title: 'Battery Efficiency vs Range',
-              xaxis: {
-                  title: 'Battery Efficiency'
-              },
-              yaxis: {
-                  title: 'Range (km)'
-              }
-          };
+        console.log('Fetched data:', data); // Log the fetched data here
 
-          const batteryEfficiencyData = [{
-              x: batteryData,
-              y: rangeData,
-              mode: 'markers',
-              type: 'scatter'
-          }];
+        // Parse the JSON string into a JavaScript object
+        data = JSON.parse(data);
 
-          Plotly.newPlot('battery-efficiency-chart', batteryEfficiencyData, batteryEfficiencyLayout);
-      });
+        if (!data || !Array.isArray(data)) {
+            throw new Error('Invalid data format');
+        }
 
-  // Fetch data for Brand Comparison for Range and Efficiency
-  fetch('/brand_comparison')
-      .then(response => response.json())
-      .then(data => {
-          // Extract Brand, Range, and Efficiency data
-          const brandData = data.map(entry => entry.Brand);
-          const rangeData = data.map(entry => entry.Range);
-          const efficiencyData = data.map(entry => entry.Efficiency);
+        // Create a Set to store unique brand names
+        const uniqueBrands = new Set();
 
-          // Create a bar chart using Plotly.js
-          const brandComparisonLayout = {
-              title: 'Brand Comparison for Range and Efficiency',
-              xaxis: {
-                  title: 'Brand'
-              },
-              yaxis: {
-                  title: 'Value'
-              }
-          };
+        // Iterate over the data to extract unique brand names
+        data.forEach(entry => {
+            uniqueBrands.add(entry.Brand);
+        });
 
-          const brandComparisonData = [{
-              x: brandData,
-              y: rangeData,
-              name: 'Range',
-              type: 'bar'
-          }, {
-              x: brandData,
-              y: efficiencyData,
-              name: 'Efficiency',
-              type: 'bar'
-          }];
+        // Convert the Set to an array
+        const uniqueBrandArray = Array.from(uniqueBrands);
 
-          Plotly.newPlot('brand-comparison-chart', brandComparisonData, brandComparisonLayout);
-      });
+        // Select the dropdown menu from the HTML file
+        let dropDownMenu = d3.select('#selDataset');
 
-  // Fetch data for Average Range for Each Brand
-  fetch('/average_range_for_each_brand')
-      .then(response => response.json())
-      .then(data => {
-          // Extract Brand and Average Range data
-          const brandData = data.map(entry => entry.Brand);
-          const avgRangeData = data.map(entry => entry['Average Range']);
+        // Clear existing options from the dropdown menu
+        dropDownMenu.selectAll("option").remove();
 
-          // Create a bar chart using Plotly.js
-          const averageRangeLayout = {
-              title: 'Average Range for Each Brand',
-              xaxis: {
-                  title: 'Brand'
-              },
-              yaxis: {
-                  title: 'Average Range (km)'
-              }
-          };
+        // Append unique brand names to the dropdown menu
+        uniqueBrandArray.forEach(brand => {
+            dropDownMenu.append("option").text(brand).property("value", brand);
+        });
 
-          const averageRangeData = [{
-              x: brandData,
-              y: avgRangeData,
-              type: 'bar'
-          }];
+        console.log('Dropdown menu updated with unique brand names:', dropDownMenu.html());
 
-          Plotly.newPlot('average-range-chart', averageRangeData, averageRangeLayout);
-      });
-});
+        // create a listen event for dropdown menu change
+        dropDownMenu.on("change", function () {
+            let sample = d3.select(this).property("value")
+            brand_chart(sample)
+        });
+
+
+        // Initializing the first page with the first values
+        let firstSample = uniqueBrandArray[0];
+        brand_chart(firstSample);
+        // buildBubble(firstSample);
+        // demographic(firstSample);
+
+    })
+    .catch(error => {
+        console.error('Error fetching or processing data:', error);
+    });
+
+// Define the brand_chart function
+function brand_chart(selectedBrand) {
+    // Fetch data from the server
+    fetch('/average_range_for_each_brand')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(serverData => {
+            // Parse the JSON string into a JavaScript object
+            const data = JSON.parse(serverData);
+
+            // Filter the data based on the selected brand
+            const filteredData = data.filter(entry => entry.Brand === selectedBrand);
+
+            if (filteredData.length === 0) {
+                console.log('No data found for the selected brand.');
+                return;
+            }
+
+            // Extract models and ranges for the selected brand
+            const models = filteredData.map(entry => entry.Model);
+            const ranges = filteredData.map(entry => entry.Range);
+
+            // Log the extracted models and ranges
+            console.log('Models:', models);
+            console.log('Ranges:', ranges);
+
+            // create the chart trace to plot it
+            let bar_chart = [{
+                x: ranges,
+                y: models,
+                // text: otu_labels.slice(0, 10).reverse(),
+                type: 'bar',
+                orientation: 'h',
+            }]
+            // create a layout for the bar chart
+            let bar_layout = {
+                title: 'Model ranges for ' + selectedBrand + ' Brand',
+                height: 500,
+                width: 1000
+            }
+            // Plot the bar chart
+            Plotly.newPlot('bar3', bar_chart, bar_layout)
+
+            // Proceed with further processing if needed
+        })
+        .catch(error => {
+            console.error('Error fetching or processing data:', error);
+        });
+}
+function optionChanged(selectedValue) {
+    // console.log('Selected value:', selectedValue);
+    // You can perform other actions here based on the selected value
+}
+
+// Define the menuChange function
+function menuChange(selectedValue) {
+    // Add your code here to handle the change event
+    console.log('Selected value:', selectedValue);
+    // You can perform any actions you want based on the selected value
+}
+
+// Other two charts here
