@@ -35,7 +35,7 @@ def average_range_for_each_brand():
     # Query data from Postgres
     df = pd.read_sql_query("SELECT * FROM public.cars_data", engine)
     # Calculate average range per brand
-    avg_range_per_brand = df.groupby('Brand')['Range'].mean().reset_index()
+    avg_range_per_brand = df.groupby(['Brand','Model'])['Range'].mean().reset_index()
     # Convert data to JSON
     data_json = avg_range_per_brand.to_json(orient='records')
     return jsonify(data_json)
