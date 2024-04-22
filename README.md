@@ -1,6 +1,6 @@
 # 16_17_Electric_Vehicles
 **
-Source: https://ev-database.org/**
+You can access our data here : https://ev-database.org/**
 
 # 1- Overview 
 In the recent years, the demand for Electric Vehicles(EV) have increased many folds. Electric vehicles are not just good for enviromnet but are also cost effective and offer better driving experience. Furthermore, advancement in battery design and model have increasd the variety of electric vehilcles available to consumers.
@@ -10,15 +10,11 @@ In the recent years, the demand for Electric Vehicles(EV) have increased many fo
 # 2- Objectives
 We believe that there are numerous factors contributing to popularity of elecric vehicles, with this porject we aim to focus on:
 
-    - Price comparison by Brand
+    - Comparison of different models/brands based on their range and efficiency.
 
-    - Top Speed and Acceleration Analysis 
+    - Top 10 Electric Vehicles based on their usable batteries
 
-    - Range and Efficiency Evaluation
-
-    - Drive Configuration Preference
-    
-    - Tesla v.s. BYD/Top 10 cars
+    - Creating an interactive tool for consumers to access different brand models and their range. 
 
 We aim to present our objectives through different visualizations following the given steps.
 
@@ -28,8 +24,14 @@ We aim to present our objectives through different visualizations following the 
 # 3- Resource Requirement
     - Installation: Python, Postges SQL
     - Technologies used: Flask, SQLAlchemy, pandas, psycopg2, HTML/CSS, D3.js, JavaScript
+    - New library used - psycopg2
 
-# 4- Contributors 
+
+# 4- Ethical Considerations
+One of the foremost ethcal consideration of this project was to safeguard the rights and well being of individuals and communities. We also focused on ensuring data privacy and confidentiality especially when dealing with sensitive personal information. By prioritizing ethical considerations throughout this project we aim to protect individual's rights and contribute positively to society's well being. 
+
+
+# 5- Contributors 
     - Abid Hussain
     - Amer Banaweer
     - Charu Arora

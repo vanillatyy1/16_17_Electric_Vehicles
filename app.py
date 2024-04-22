@@ -34,6 +34,3 @@ Base.prepare(autoload_with=engine)
 # Create our session (link) from Python to the DB
 session = Session(engine)
 
-#################################################
-# Flask Setup
-#################################################
