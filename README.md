@@ -9,13 +9,19 @@ In the recent years, the demand for Electric Vehicles(EV) have increased many fo
 
 # 2- Objectives
 We believe that there are numerous factors contributing to popularity of elecric vehicles, with this porject we aim to focus on:
+
     - Price comparison by Brand
+
     - Top Speed and Acceleration Analysis 
+
     - Range and Efficiency Evaluation
+
     - Drive Configuration Preference
+    
     - Tesla v.s. BYD/Top 10 cars
 
 We aim to present our objectives through different visualizations following the given steps.
+
 ![alt text](data_vis.png)
 
 
