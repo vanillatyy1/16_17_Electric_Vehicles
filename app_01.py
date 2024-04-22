@@ -6,7 +6,7 @@ from sqlalchemy import create_engine
 app = Flask(__name__)
 
 # Create engine
-engine = create_engine("postgresql://postgres:Amer1234@localhost:5432/cars_data")
+engine = create_engine("postgresql://postgres:postgres@localhost:5433/cars_data")
 
 
 # Route to get battery efficiency vs range data
@@ -14,8 +14,10 @@ engine = create_engine("postgresql://postgres:Amer1234@localhost:5432/cars_data"
 def battery_efficiency_vs_range():
     # Query data from Postgres
     df = pd.read_sql_query("SELECT * FROM public.cars_data", engine)
+    # Calculate average battery and range by each brand
+    battery_vs_range_per_brand = df.groupby('Brand')[['Battery', 'Range','Efficiency']].mean().reset_index()
     # Convert data to JSON
-    data_json = df[['Battery', 'Range']].to_json(orient='records')
+    data_json = battery_vs_range_per_brand.to_json(orient='records')
     return jsonify(data_json)
 
 # Route to get brand comparison data
@@ -24,7 +26,7 @@ def brand_comparison():
     # Query data from Postgres
     df = pd.read_sql_query("SELECT * FROM public.cars_data", engine)
     # Calculate average range and efficiency per brand
-    grouped_data = df.groupby('Brand')[['Range', 'Efficiency']].mean().reset_index()
+    grouped_data = df.groupby(['Brand','Model'])[['Battery', 'Efficiency']].mean().reset_index()
     # Convert data to JSON
     data_json = grouped_data.to_json(orient='records')
     return jsonify(data_json)

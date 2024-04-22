@@ -124,3 +124,128 @@ function menuChange(selectedValue) {
 }
 
 // Other two charts here
+//bar1 - Range and Efficiency comparison for each brand
+fetch('/battery_efficiency_vs_range')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(brandComparisonData => {
+        console.log('Fetched data:', brandComparisonData); // Log the fetched data here
+        // Parse the JSON string into a JavaScript object
+        const brandrangeData = JSON.parse(brandComparisonData);
+        
+
+        // Create a Set to store unique brand names
+        //const uniqueBrands = new Set();
+        // Iterate over the data to extract unique brand names
+        //data.forEach(entry => {
+        //  uniqueBrands.add(entry.Brand);
+        // Convert the Set to an array
+        //const uniqueBrandArray = Array.from(uniqueBrands);
+     
+     // Extract models and ranges for the selected brand
+        const brandsData = brandrangeData.map(entry => entry.Brand);
+        const rangesData = brandrangeData.map(entry => entry.Range);
+        const efficiencyData = brandrangeData.map(entry => entry.Efficiency)
+    // Log the extracted models and ranges
+        console.log('brands:', brandsData);
+        console.log('Ranges:', rangesData);
+        console.log('Ranges:', efficiencyData);
+    //Create bar chart
+    //Create a layout for the bar chart
+        let barLayout= {
+            title: 'Brand comparison for Range and Efficiency',
+            xaxis: {
+            title: 'Brand',
+            showticklabels: true,
+            tickangle: -90,
+            tickfont: {
+                family: 'Old Standard TT, serif',
+                size: 14,
+                color: 'black'
+            },
+            },
+            yaxis: {
+            title: 'Values'
+            },
+            autosize : true,
+            barmode: 'group',
+            bargap :0.15,
+    };
+
+    //Create chart trace to plot
+
+         let trace1 = {
+            x: brandsData,
+            y: rangesData,
+            type: "bar",
+            name :"Range (Km)"
+        };
+        let trace2 = {
+            x: brandsData,
+            y: efficiencyData,
+            type: "bar",
+            name :"Efficiency (Wh/Km)"
+        };
+        // Data trace array
+        let barData = [trace1, trace2];
+        // Plot the bar chart
+        Plotly.newPlot('bar1', barData, barLayout)
+    })
+// proceed with further processing if needed
+    .catch(error => {
+        console.error('Error fetching or processing data:', error);
+    })
+//bar2 - Top 10 Evs with maximum usable battery
+fetch('/brand_comparison')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(batterysize => {
+        console.log('Fetched data:', batterysize); // Log the fetched data here
+        // Parse the JSON string into a JavaScript object
+        const sortedData = JSON.parse(batterysize);
+        let sortedByBattery = sortedData.sort((a, b) => b.Battery - a.Battery);
+
+        // Slice the first 10 objects for plotting
+        let slicedData = sortedByBattery.slice(0, 10);
+        
+        // Reverse the array to accommodate Plotly's defaults
+        slicedData.reverse();
+
+        // Trace1 for the Greek Data
+        let trace1 = {
+            x: slicedData.map(object => object.Battery),
+            y: slicedData.map(object => object.Model),
+            text: slicedData.map(object => object.Brand),
+            name: "Battery capacity",
+            type: "bar",
+            orientation: "h"
+        };
+        // Data array
+        let data = [trace1];
+
+         // Apply a title to the layout
+         let layout = {
+         title: "EVs with maximum usable battery capacity - Top 10",
+         automargin : true,
+         autosize: true
+        };
+
+         // Render the plot to the div tag with id "plot"
+         Plotly.newPlot("bar2", data, layout);
+    })
+
+
+
+
+
+
+
+
