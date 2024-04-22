@@ -219,7 +219,7 @@ fetch('/brand_comparison')
         // Reverse the array to accommodate Plotly's defaults
         slicedData.reverse();
 
-        // Trace1 for the Greek Data
+        // Trace1 for the Data
         let trace1 = {
             x: slicedData.map(object => object.Battery),
             y: slicedData.map(object => object.Model),
