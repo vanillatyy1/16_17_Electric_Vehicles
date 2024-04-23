@@ -28,7 +28,7 @@ We aim to present our objectives through different visualizations following the 
 
 
 # 4- Ethical Considerations
-One of the foremost ethcal consideration of this project was to safeguard the rights and well being of individuals and communities. We also focused on ensuring data privacy and confidentiality especially when dealing with sensitive personal information. By prioritizing ethical considerations throughout this project we aim to protect individual's rights and contribute positively to society's well being. 
+One of the foremost ethical consideration of this project was to safeguard the rights and well being of individuals and communities. We also focused on ensuring data privacy and confidentiality especially when dealing with sensitive personal information. By prioritizing ethical considerations throughout this project we aim to protect individual's rights and contribute positively to society's well being. 
 
 
 # 5- Contributors 
