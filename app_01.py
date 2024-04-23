@@ -1,12 +1,16 @@
 from flask import Flask, jsonify, render_template
 import pandas as pd
 from sqlalchemy import create_engine
+from config import endpoint, password
 
 # Create Flask app
 app = Flask(__name__)
 
 # Create engine
-engine = create_engine("postgresql://postgres:postgres@localhost:5433/cars_data")
+# engine = create_engine("postgresql://postgres:Amer1234@localhost:5432/cars_data")
+engine = create_engine(f"postgresql://postgres:{password}@{endpoint}:5432/cars_data")
+
+
 
 
 # Route to get battery efficiency vs range data

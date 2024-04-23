@@ -99,12 +99,21 @@ function brand_chart(selectedBrand) {
             // create a layout for the bar chart
             let bar_layout = {
                 title: 'Model ranges for ' + selectedBrand + ' Brand',
-                height: 500,
-                width: 1000
+                height: 400,
+                plot_bgcolor: "#f5cb7d",
+                paper_bgcolor: "#f5cb7d",
+                font: {
+                    family: 'Courier New, monospace',
+                    size: 18,
+                    color: '#black'
+                },
+                yaxis: {
+
+                    automargin: true
+                },
             }
             // Plot the bar chart
             Plotly.newPlot('bar3', bar_chart, bar_layout)
-
             // Proceed with further processing if needed
         })
         .catch(error => {
@@ -136,7 +145,7 @@ fetch('/battery_efficiency_vs_range')
         console.log('Fetched data:', brandComparisonData); // Log the fetched data here
         // Parse the JSON string into a JavaScript object
         const brandrangeData = JSON.parse(brandComparisonData);
-        
+
 
         // Create a Set to store unique brand names
         //const uniqueBrands = new Set();
@@ -145,57 +154,65 @@ fetch('/battery_efficiency_vs_range')
         //  uniqueBrands.add(entry.Brand);
         // Convert the Set to an array
         //const uniqueBrandArray = Array.from(uniqueBrands);
-     
-     // Extract models and ranges for the selected brand
+
+        // Extract models and ranges for the selected brand
         const brandsData = brandrangeData.map(entry => entry.Brand);
         const rangesData = brandrangeData.map(entry => entry.Range);
         const efficiencyData = brandrangeData.map(entry => entry.Efficiency)
-    // Log the extracted models and ranges
+        // Log the extracted models and ranges
         console.log('brands:', brandsData);
         console.log('Ranges:', rangesData);
         console.log('Ranges:', efficiencyData);
-    //Create bar chart
-    //Create a layout for the bar chart
-        let barLayout= {
+        //Create bar chart
+        //Create a layout for the bar chart
+        let barLayout = {
             title: 'Brand comparison for Range and Efficiency',
             xaxis: {
-            title: 'Brand',
-            showticklabels: true,
-            tickangle: -90,
-            tickfont: {
-                family: 'Old Standard TT, serif',
-                size: 14,
-                color: 'black'
+                title: 'Brand',
+                showticklabels: true,
+                tickangle: -90,
+                tickfont: {
+                    family: 'Old Standard TT, serif',
+                    size: 14,
+                    color: 'black'
+                },
             },
+            plot_bgcolor: "#f5cb7d",
+            paper_bgcolor: "#f5cb7d",
+            font: {
+                family: 'Courier New, monospace',
+                size: 18,
+                color: '#black'
             },
             yaxis: {
-            title: 'Values'
+                title: 'Values',
+                automargin: true
             },
-            autosize : true,
+            autosize: true,
             barmode: 'group',
-            bargap :0.15,
-    };
+            bargap: 0.15,
+        };
 
-    //Create chart trace to plot
+        //Create chart trace to plot
 
-         let trace1 = {
+        let trace1 = {
             x: brandsData,
             y: rangesData,
             type: "bar",
-            name :"Range (Km)"
+            name: "Range (Km)"
         };
         let trace2 = {
             x: brandsData,
             y: efficiencyData,
             type: "bar",
-            name :"Efficiency (Wh/Km)"
+            name: "Efficiency (Wh/Km)"
         };
         // Data trace array
         let barData = [trace1, trace2];
         // Plot the bar chart
         Plotly.newPlot('bar1', barData, barLayout)
     })
-// proceed with further processing if needed
+    // proceed with further processing if needed
     .catch(error => {
         console.error('Error fetching or processing data:', error);
     })
@@ -215,7 +232,7 @@ fetch('/brand_comparison')
 
         // Slice the first 10 objects for plotting
         let slicedData = sortedByBattery.slice(0, 10);
-        
+
         // Reverse the array to accommodate Plotly's defaults
         slicedData.reverse();
 
@@ -231,15 +248,26 @@ fetch('/brand_comparison')
         // Data array
         let data = [trace1];
 
-         // Apply a title to the layout
-         let layout = {
-         title: "EVs with maximum usable battery capacity - Top 10",
-         automargin : true,
-         autosize: true
+        // Apply a title to the layout
+        let layout = {
+            title: "EVs with maximum usable battery capacity - Top 10",
+            // autosize: true,
+            // automargin: true,
+            yaxis: {
+
+                automargin: true
+            },
+            plot_bgcolor: "#f5cb7d",
+            paper_bgcolor: "#f5cb7d",
+            font: {
+                family: 'Courier New, monospace',
+                size: 18,
+                color: '#black'
+            }
         };
 
-         // Render the plot to the div tag with id "plot"
-         Plotly.newPlot("bar2", data, layout);
+        // Render the plot to the div tag with id "plot"
+        Plotly.newPlot("bar2", data, layout);
     })
 
 
