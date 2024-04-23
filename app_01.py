@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 # Create engine
 # engine = create_engine("postgresql://postgres:Amer1234@localhost:5432/cars_data")
-engine = create_engine("postgresql://postgres:postgres1@project-3.cd0y44m0g3xb.eu-north-1.rds.amazonaws.com:5432/cars_data")
+engine = create_engine("postgresql://postgres:postgres1@{endpoint}:5432/cars_data")
 
 
 
