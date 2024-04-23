@@ -18,7 +18,7 @@ We believe that there are numerous factors contributing to popularity of elecric
 
 We aim to present our objectives through different visualizations following the given steps.
 
-![alt text](image.png)
+![alt text](data_vis.png)
 
 
 # 3- Resource Requirement
