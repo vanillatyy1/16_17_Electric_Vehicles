@@ -5,9 +5,10 @@ from config import endpoint, password
 
 # Create Flask app
 app = Flask(__name__)
-
-# Create engine
+# Database can be accessed  either by creating database on local system or using aws method
+# Create engine , update the code below with pgAdmin4 password 
 # engine = create_engine("postgresql://postgres:Amer1234@localhost:5432/cars_data")
+# creating engine using aws
 engine = create_engine(f"postgresql://postgres:{password}@{endpoint}:5432/cars_data")
 
 
