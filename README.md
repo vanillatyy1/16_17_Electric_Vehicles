@@ -32,4 +32,14 @@ Plotly.js was employed to create interactive and visually appealing charts for d
 
 2) Standardizing and structuring data into a consistent format enhances its usability and facilitates meaningful analysis.
 
-
+# Directory
+16_17_Electric_Vehicles/
+│
+├── app_01.py
+├── templates/
+│   ├── index.html
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   └── js/
+│       └── plot.js
