@@ -38,7 +38,7 @@ One of the foremost ethical consideration of this project was to safeguard the r
 
 
 # 6- Contributors 
-**    - Abid Hussain
+**- Abid Hussain
     - Amer Banaweer
     - Charu Arora
     - Vanilla Tse**
