@@ -20,10 +20,22 @@ We aim to present our objectives through different visualizations following the 
 
 ![alt text](data_vis.png)
 
+## Web scraping and Data Cleaning
+We utilized the requests library to retrieve data from [https://ev-database.org/](https://ev-database.org/) and BeautifulSoup to parse the HTML content. The primary goal was to extract information about electric cars, including their brands, models, battery specifications, performance metrics, prices in different countries, and additional features. We then organized this data into a structured format using Pandas DataFrame. Additionally, we performed data cleaning tasks such as replacing missing values, converting currencies, and formatting columns to ensure consistency and usability. Finally, we prepared the data for further analysis or visualization by renaming columns and adjusting data types as needed.
+
+## AWS Integration and Database Modification:
+In the course of our project, we transitioned from local database management to leveraging Amazon AWS for our database needs. This shift allowed us to enhance scalability and accessibility while maintaining data integrity and security. By establishing a connection with Amazon AWS, we ensured seamless data management and efficient retrieval for our project requirements.
+
+## JavaScript Enhancement with D3 and Plotly.js:
+To enrich our data visualization capabilities, we utilized both D3.js and Plotly.js in our JavaScript code. D3.js facilitated dynamic data manipulation and DOM manipulation, enabling us to create custom interactive features and transitions for a more engaging user experience. Additionally, we leveraged Plotly.js to implement advanced charting functionalities, such as interactive dropdown menus for selecting car brands for visualizations. 
+
+## CSS Styling Updates:
+Our CSS stylesheet underwent refinement to enhance the aesthetics and user experience of our web application. We tried fine-tuning element alignments, font styles, and color schemes. 
 
 # 3- Resource Requirement
     - Installation: Python3.x, Postges SQL
     - Technologies used: Flask, SQLAlchemy, pandas, psycopg2, HTML/CSS, D3.js, JavaScript
+    - Hosting/Cloud: Amazon Web Services (AWS)
     - New library used - psycopg2
     
 # 4- Steps to interact with the visualizations
@@ -38,7 +50,7 @@ One of the foremost ethical consideration of this project was to safeguard the r
 
 
 # 6- Contributors 
-**- Abid Hussain
-    - Amer Banaweer
-    - Charu Arora
-    - Vanilla Tse**
+[@Charu39](https://github.com/Charu39)
+[@Amer4r](https://github.com/Amer4r)
+[@vanillatyy1](https://github.com/vanillatyy1/)
+[@abidhussainca1294](https://github.com/abidhussainca1294)
