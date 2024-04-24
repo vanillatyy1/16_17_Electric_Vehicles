@@ -11,9 +11,6 @@ app = Flask(__name__)
 # creating engine using aws
 engine = create_engine(f"postgresql://postgres:{password}@{endpoint}:5432/cars_data")
 
-
-
-
 # Route to get battery efficiency vs range data
 @app.route('/battery_efficiency_vs_range')
 def battery_efficiency_vs_range():
