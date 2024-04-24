@@ -26,7 +26,7 @@ We aim to present our objectives through different visualizations following the 
     - Technologies used: Flask, SQLAlchemy, pandas, psycopg2, HTML/CSS, D3.js, JavaScript
     - New library used - psycopg2
     
-# 4- Steps to inetract with the visualizations
+# 4- Steps to interact with the visualizations
     - Clone the repository using https://github.com/vanillatyy1/16_17_Electric_Vehicles
     - Install all the packages within requirements.txt and run: pip install -r requirements.txt
     - Import data into the database
