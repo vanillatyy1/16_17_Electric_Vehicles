@@ -22,17 +22,23 @@ We aim to present our objectives through different visualizations following the 
 
 
 # 3- Resource Requirement
-    - Installation: Python, Postges SQL
+    - Installation: Python3.x, Postges SQL
     - Technologies used: Flask, SQLAlchemy, pandas, psycopg2, HTML/CSS, D3.js, JavaScript
     - New library used - psycopg2
+    
+# 4- Steps to inetract with the visualizations
+    - Clone the repository using https://github.com/vanillatyy1/16_17_Electric_Vehicles
+    - Install all the packages within requirements.txt and run: pip install -r requirements.txt
+    - Import data into the database
+    - Update the URL with your PostgresSQL username and password.
+    - run application using: python app_01.py
 
-
-# 4- Ethical Considerations
+# 5- Ethical Considerations
 One of the foremost ethical consideration of this project was to safeguard the rights and well being of individuals and communities. We also focused on ensuring data privacy and confidentiality especially when dealing with sensitive personal information. By prioritizing ethical considerations throughout this project we aim to protect individual's rights and contribute positively to society's well being. 
 
 
-# 5- Contributors 
-    - Abid Hussain
+# 6- Contributors 
+**    - Abid Hussain
     - Amer Banaweer
     - Charu Arora
-    - Vanilla Tse
+    - Vanilla Tse**
