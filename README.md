@@ -5,7 +5,7 @@ You can access our data here : https://ev-database.org/**
 # 1- Overview 
 In the recent years, the demand for Electric Vehicles(EV) have increased many folds. Electric vehicles are not just good for enviromnet but are also cost effective and offer better driving experience. Furthermore, advancement in battery design and model have increasd the variety of electric vehilcles available to consumers.
 
-![alt text](EV.png)
+![Electric Vehicle](https://github.com/vanillatyy1/16_17_Electric_Vehicles/raw/4d95ea0bb6804447c4ec8e22abbc238155edd02e/visuals/EV.png)
 
 # 2- Objectives
 We believe that there are numerous factors contributing to popularity of elecric vehicles, with this porject we aim to focus on:
@@ -31,6 +31,10 @@ To enrich our data visualization capabilities, we utilized both D3.js and Plotly
 
 ## CSS Styling Updates:
 Our CSS stylesheet underwent refinement to enhance the aesthetics and user experience of our web application. We tried fine-tuning element alignments, font styles, and color schemes. 
+
+![Visual1](https://github.com/vanillatyy1/16_17_Electric_Vehicles/blob/4d95ea0bb6804447c4ec8e22abbc238155edd02e/visuals/visual1.png)
+![Visual2](https://github.com/vanillatyy1/16_17_Electric_Vehicles/blob/4d95ea0bb6804447c4ec8e22abbc238155edd02e/visuals/visual2.png)
+
 
 # 3- Resource Requirement
     - Installation: Python3.x, Postges SQL
